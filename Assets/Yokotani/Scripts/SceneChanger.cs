@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class SceneChanger : MonoBehaviour
+public class StartButtonScript : MonoBehaviour 
 {
-    public void GoToScene1()
+    public void OnClickStartButton()
     {
         SceneManager.LoadScene("Scene1");
     }
