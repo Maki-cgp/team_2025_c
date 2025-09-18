@@ -20,12 +20,14 @@ public class Goal : MonoBehaviour
             transform.position += Vector3.left * GameManager.Instance.currentSpeed * Time.deltaTime;
     }
 
+    public GameObject speedMeter;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             // GameManagerのOnGoalメソッドを呼び出す
             GameManager.Instance.OnGoal();
+            speedMeter.SetActive(false);
 
             isMoving = false;
         }
