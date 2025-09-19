@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
             // 左への移動 (共通の速度を使用)
             transform.position += Vector3.left * GameManager.Instance.currentSpeed * Time.deltaTime;
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,13 +34,22 @@ public class Enemy : MonoBehaviour
         // プレイヤーに触れたかチェック
         if (collision.gameObject.CompareTag("Player"))
         {
-            // 共通の速度を減速させる
-            GameManager.Instance.currentSpeed -= GameManager.Instance.decelerationRate;
-
-            // 速度が0を下回らないようにする
-            if (GameManager.Instance.currentSpeed < 0)
+            // プレイヤーがシールド状態の処理
+            if (ActionPlayer.shield)
             {
-                GameManager.Instance.currentSpeed = 0;
+                ActionPlayer.shield = false;   // シールド破壊
+            }
+
+            // プレイヤーにシールドが無いときの処理
+            else
+            {
+                // 共通の速度を減速させる
+                GameManager.Instance.currentSpeed -= GameManager.Instance.decelerationRate;
+                // 速度が0を下回らないようにする
+                if (GameManager.Instance.currentSpeed < 0)
+                {
+                    GameManager.Instance.currentSpeed = 0;
+                }
             }
 
             isMoving = false;

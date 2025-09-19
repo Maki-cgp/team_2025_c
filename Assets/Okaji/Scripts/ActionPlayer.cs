@@ -7,6 +7,12 @@ public class ActionPlayer : MonoBehaviour
     public float minY = -2.7f; // 最小のY座標
     public float maxY = 0f;  // 最大のY座標
 
+    // アイテム効果が発動しているかどうかのフラグ
+    public static bool shield = false;
+
+    // シールド効果発動をわかりやすくする表示
+    public GameObject shieldObj;
+
     void Update()
     {
         // 上矢印キーが押された瞬間に上に移動
@@ -31,6 +37,15 @@ public class ActionPlayer : MonoBehaviour
             {
                 transform.position = newPosition;
             }
+        }
+
+        if (shield)
+        {
+            shieldObj.SetActive(true);
+        }
+        else
+        {
+            shieldObj.SetActive(false);
         }
     }
 }
