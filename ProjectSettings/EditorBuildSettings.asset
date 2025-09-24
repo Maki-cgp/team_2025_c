@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Okaji/Scenes/Action.unity
     guid: 2a241f56e62c5d641abe1ed0fe6d7899
+  - enabled: 1
+    path: Assets/Yokotani/Scenes/SelectScene.unity
+    guid: 3c51d1d56c2fa434b9e032c2698b8a37
+  - enabled: 1
+    path: Assets/Yokotani/Scenes/ModeSelect.unity
+    guid: 9e4e98055a9ea5543ad57efa322cec02
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
