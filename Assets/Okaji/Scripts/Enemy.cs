@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
     private Collider2D enemyCollider;
     private SpriteRenderer spriteRenderer;
 
+    // ダメージを受けたかどうかのフラグ
+    public static bool nodamage = true;
+
     // 敵が動いているかどうかのフラグ
     private bool isMoving = true;
 
@@ -49,6 +52,11 @@ public class Enemy : MonoBehaviour
                 if (GameManager.Instance.currentSpeed < 0)
                 {
                     GameManager.Instance.currentSpeed = 0;
+                }
+
+                if (nodamage)   // ノーダメージフラグを偽に
+                {
+                    nodamage = false;
                 }
             }
 

@@ -28,6 +28,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             ActionPlayer.shield = true;   // シールド付与
+            GameManager.Instance.ItemCounter(); // アイテムカウント増加
 
             isMoving = false;
 
