@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 public class ActionPlayer : MonoBehaviour
 {
-    public float distance = 2.7f;
-    public float minY = -2.7f; // 最小のY座標
-    public float maxY = 0f;  // 最大のY座標
+    public float distance = 2.0f;
+    public float minY = -2.5f; // 最小のY座標
+    public float maxY = 1.5f;  // 最大のY座標
 
     // アイテム効果が発動しているかどうかのフラグ
     public static bool shield = false;
@@ -16,7 +16,7 @@ public class ActionPlayer : MonoBehaviour
     void Update()
     {
         // 上矢印キーが押された瞬間に上に移動
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame)
         {
             Vector3 newPosition = transform.position;
             newPosition.y += distance;
@@ -28,7 +28,7 @@ public class ActionPlayer : MonoBehaviour
         }
 
         // 下矢印キーが押された瞬間に下に移動
-        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.downArrowKey.wasPressedThisFrame || Keyboard.current.sKey.wasPressedThisFrame)
         {
             Vector3 newPosition = transform.position;
             newPosition.y -= distance;

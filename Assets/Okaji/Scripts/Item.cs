@@ -7,10 +7,15 @@ public class Item : MonoBehaviour
     // アイテムが動いているかどうかのフラグ
     private bool isMoving = true;
 
+    // アイテム取得音
+    private AudioSource audioSource;
+    public AudioClip getSound;
+
     void Start()
     {
         // 必要なコンポーネントを取得
         itemCollider = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -30,6 +35,7 @@ public class Item : MonoBehaviour
             ActionPlayer.shield = true;   // シールド付与
             GameManager.Instance.ItemCounter(); // アイテムカウント増加
 
+            audioSource.PlayOneShot(getSound);
             isMoving = false;
 
             // 衝突判定を無効にする

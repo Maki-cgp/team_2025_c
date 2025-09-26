@@ -6,6 +6,10 @@ public class Enemy : MonoBehaviour
     private Collider2D enemyCollider;
     private SpriteRenderer spriteRenderer;
 
+    // 被ダメージ音
+    private AudioSource audioSource;
+    public AudioClip damageSound;
+
     // ダメージを受けたかどうかのフラグ
     public static bool nodamage = true;
 
@@ -21,6 +25,7 @@ public class Enemy : MonoBehaviour
         // 必要なコンポーネントを取得
         enemyCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,6 +65,7 @@ public class Enemy : MonoBehaviour
                 }
             }
 
+            audioSource.PlayOneShot(damageSound);
             isMoving = false;
 
             // 衝突判定を無効にする

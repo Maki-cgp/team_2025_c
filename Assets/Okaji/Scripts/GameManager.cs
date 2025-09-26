@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
     public float maxSpeed = 50f;            // 最高速
     public float accelerationRate = 2f;   // 1秒あたりの加速率
     public float decelerationRate = 10f;     // 減速率
+
+    // カウントダウン画像
+    public GameObject go;
+    public GameObject one;
+    public GameObject two;
+    public GameObject three;
 
     private void Awake()
     {
@@ -43,6 +49,29 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         // 最初の効果音を再生
         PlayCountDown();
+        StartCoroutine(DelayedStart());
+    }
+
+    // カウントダウン画像表示
+    IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(0.8f);
+        three.SetActive(true);
+
+        yield return new WaitForSeconds(0.8f);
+        three.SetActive(false);
+        two.SetActive(true);
+
+        yield return new WaitForSeconds(0.8f);
+        two.SetActive(false);
+        one.SetActive(true);
+
+        yield return new WaitForSeconds(0.8f);
+        one.SetActive(false);
+        go.SetActive(true);
+
+        yield return new WaitForSeconds(1.0f);
+        go.SetActive(false);
     }
 
     void Update()
