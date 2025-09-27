@@ -1,0 +1,36 @@
+{
+    "name": "Summer Finale!!",
+    "maxBlock": 4,
+    "BPM": 270.0,
+    "offset": 0,
+    "notes": [
+        {
+            "LPB": 4,
+            "num": 120,
+            "block": 2,
+            "type": 1,
+            "notes": []
+        },
+        {
+            "LPB": 4,
+            "num": 130,
+            "block": 3,
+            "type": 1,
+            "notes": []
+        },
+        {
+            "LPB": 4,
+            "num": 136,
+            "block": 1,
+            "type": 1,
+            "notes": []
+        },
+        {
+            "LPB": 4,
+            "num": 144,
+            "block": 2,
+            "type": 1,
+            "notes": []
+        }
+    ]
+}
