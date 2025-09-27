@@ -42,5 +42,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: nagaretekuru
+    uniqueID: 3206838885
+    locked: 0
+  - name: hanteisen
+    uniqueID: 817203209
+    locked: 0
+  - name: note
+    uniqueID: 3491874381
+    locked: 0
+  - name: hanteikekka
+    uniqueID: 2585686841
+    locked: 0
   m_RenderingLayers:
   - Default
