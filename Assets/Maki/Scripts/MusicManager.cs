@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public void PauseMusic()
+    {
+        if (audio.isPlaying)
+            audio.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        audio.UnPause();
+    }
     AudioSource audio;
     AudioClip Music;
     string songName;

@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro; // スコア表示用
 using UnityEngine;
 
 public class Judge : MonoBehaviour
 {
     // Inspectorで設定する変数
+    public int score = 0; // スコア変数
+    [SerializeField] private TextMeshProUGUI scoreText; // スコア表示用TextMeshProUGUI
     [SerializeField] private GameObject[] MessageObj; // 判定メッセージのPrefab配列
     [SerializeField] private NotesManager notesManager; // NotesManagerの参照
 
     void Update()
     {
+        // スコア表示を更新
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score.ToString();
+        }
         // notesManagerが設定されており、かつ処理すべきノーツが1つ以上存在するか確認
         if (GManager.instance.Start && notesManager != null && notesManager.NotesTime.Count > 0)
         {
@@ -101,6 +109,7 @@ public class Judge : MonoBehaviour
             message(0, notesManager.LaneNum[noteIndex]);
             GManager.instance.perfect++;
             GManager.instance.combo++;
+            score += 10; // 10点加算
         }
         // Great判定
         else if (timeLag <= 0.15f)
@@ -109,6 +118,7 @@ public class Judge : MonoBehaviour
             message(1, notesManager.LaneNum[noteIndex]);
             GManager.instance.great++;
             GManager.instance.combo++;
+            score += 5; // 5点加算
         }
         // Bad判定
         else // (0.15f < timeLag <= 0.20f)
@@ -117,6 +127,7 @@ public class Judge : MonoBehaviour
             message(2, notesManager.LaneNum[noteIndex]);
             GManager.instance.bad++;
             GManager.instance.combo = 0;
+            score += 2; // 2点加算
         }
 
         // 判定が確定したので、ノーツデータを削除

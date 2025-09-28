@@ -26,8 +26,9 @@ public class MusicNote
 public class NotesManager : MonoBehaviour
 {
     // Inspectorで設定する項目
-    [SerializeField] private float NotesSpeed; // ノーツの落下速度 (例: 10.0f)
+    public float NotesSpeed; // ノーツの落下速度 (例: 10.0f)
     [SerializeField] private GameObject noteObj; // ノーツのPrefab
+    [SerializeField] private float offset; //オフセット
 
     // 内部で管理するデータ
     public int noteNum; // JSON読み込み時の総ノーツ数（参考用）
@@ -79,7 +80,7 @@ public class NotesManager : MonoBehaviour
             // 時間を計算
             float kankaku = 60f / (inputJson.BPM * (float)inputJson.notes[i].LPB);
             float beatSec = kankaku * (float)inputJson.notes[i].LPB;
-            float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + inputJson.offset * 0.01f;
+            float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + offset * 0.01f;
 
             // リストに情報を追加
             NotesTime.Add(time);
