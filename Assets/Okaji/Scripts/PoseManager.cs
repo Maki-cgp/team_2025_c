@@ -41,10 +41,8 @@ public class PoseManager : MonoBehaviour
     // ステージ選択に戻るボタンが押されたときに呼び出されるメソッド
     public void PoseStage()
     {
-        // 現在のシーンを再ロード
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        SceneManager.LoadScene(currentScene.name);
+        // タイトルに戻る
+        SceneManager.LoadScene(4);
 
         // UIを非表示にする
         poseUI.SetActive(false);
