@@ -163,6 +163,9 @@ public class ResultManager : MonoBehaviour
     // 終了ボタンが押された時に呼び出されるメソッド
     public void StageSelect()
     {
+        // シールド無効
+        ActionPlayer.shield = false;
+
         // タイトルに戻る
         SceneManager.LoadScene(4);
 

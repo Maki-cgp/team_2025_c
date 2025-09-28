@@ -41,6 +41,9 @@ public class PoseManager : MonoBehaviour
     // ステージ選択に戻るボタンが押されたときに呼び出されるメソッド
     public void PoseStage()
     {
+        // シールド無効
+        ActionPlayer.shield = false;
+
         // タイトルに戻る
         SceneManager.LoadScene(4);
 
