@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     // BGM
     public AudioClip countDown;
     public AudioClip bgm;
+    public AudioClip startbuttonSound;
 
     public AudioSource audioSource;
     private bool isPlayingFirstSound = false;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void OnButtonClick()
     {
+        audioSource.PlayOneShot(startbuttonSound);   // ボタン効果音
         StartCoroutine(GameStart());
         startButton.SetActive(false);
     }

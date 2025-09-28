@@ -35,14 +35,14 @@ public class Item : MonoBehaviour
             ActionPlayer.shield = true;      // シールド付与
             GameManager.Instance.ItemCounter(); // アイテムカウント増加
 
-            // 1. 動きを停止し、当たり判定を無効化
+            // 動きを停止し、当たり判定を無効化
             isMoving = false;
             itemCollider.enabled = false;
 
-            // 2. 音を鳴らす
+            // 音を鳴らす
             audioSource.PlayOneShot(getSound);
 
-            // 3. レンダラーを無効にしてアイテムを非表示にする
+            // レンダラーを無効にしてアイテムを非表示にする
             // これでプレイヤーからは消えたように見える
             var renderer = GetComponent<Renderer>();
             if (renderer != null)
@@ -50,8 +50,7 @@ public class Item : MonoBehaviour
                 renderer.enabled = false;
             }
 
-            // 4. 音が鳴り終わるのを待ってからゲームオブジェクトを破棄
-            // getSound.length (秒) だけ遅延させてから破棄する
+            // 音が鳴り終わるのを待ってからゲームオブジェクトを破棄
             Destroy(gameObject, getSound.length);
         }
     }

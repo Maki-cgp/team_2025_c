@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
 
     // ゴール演出
     private bool goalChecker = false;
+    public bool speedChecker = false;
     public GameObject goalScript;
     public AudioClip goalSound;
 
@@ -35,6 +36,10 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (GameManager.Instance.currentSpeed >= 50)
+            {
+                speedChecker = true;
+            }
             // 共通速度を0にして、ゲームを停止させる
             GameManager.Instance.currentSpeed = 0;
 
