@@ -14,12 +14,15 @@ public class GameManager : MonoBehaviour
     public GameObject startButton;
     public GameObject tutorial;
     public GameObject speedMeter;
+    public GameObject poseButton;
 
     // カウントダウン画像
     public GameObject go;
     public GameObject one;
     public GameObject two;
     public GameObject three;
+
+    public PoseManager poseManager;
 
     private void Awake()
     {
@@ -87,7 +90,8 @@ public class GameManager : MonoBehaviour
         one.SetActive(false);
         go.SetActive(true);
         isMoving = true;    // ゲームを動かす
-        currentSpeed = 10f;
+        currentSpeed = poseManager.speedMemory;
+        poseButton.SetActive(true);
 
         yield return new WaitForSeconds(1.0f);
         go.SetActive(false);
@@ -121,6 +125,7 @@ public class GameManager : MonoBehaviour
     void PlayCountDown()
     {
         audioSource.clip = countDown;
+        audioSource.loop = false;
         audioSource.Play();
         isPlayingFirstSound = true;
     }

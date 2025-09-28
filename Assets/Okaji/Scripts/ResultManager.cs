@@ -148,10 +148,23 @@ public class ResultManager : MonoBehaviour
     // 再挑戦ボタンが押された時に呼び出されるメソッド
     public void Retry()
     {
+        // シールド無効
+        ActionPlayer.shield = false;
+
         // 現在のシーンを再ロード
         Scene currentScene = SceneManager.GetActiveScene();
 
         SceneManager.LoadScene(currentScene.name);
+
+        // UIを非表示にする
+        resultUI.SetActive(false);
+    }
+
+    // 終了ボタンが押された時に呼び出されるメソッド
+    public void StageSelect()
+    {
+        // ステージセレクトに戻る
+        SceneManager.LoadScene(7);
 
         // UIを非表示にする
         resultUI.SetActive(false);

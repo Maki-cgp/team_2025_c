@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Yokotani/Scenes/HubScene.unity
     guid: 480c5cb0d41c9304da946036b743ff27
   - enabled: 1
-    path: Assets/Okaji/Scenes/Action_sample.unity
+    path: Assets/Okaji/Scenes/Action_1.unity
     guid: 2a241f56e62c5d641abe1ed0fe6d7899
   - enabled: 1
     path: Assets/Yokotani/Scenes/SelectScene.unity
@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Yokotani/Scenes/ModeSelect.unity
     guid: 9e4e98055a9ea5543ad57efa322cec02
+  - enabled: 1
+    path: Assets/Okaji/Scenes/Action_Tutorial.unity
+    guid: ba1d77a172b6a174299ee615d9842895
+  - enabled: 1
+    path: Assets/Yokotani/Scenes/New.unity
+    guid: 8fda08630065e5640b5fc4d44b4a76d7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
