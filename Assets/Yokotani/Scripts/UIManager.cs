@@ -22,4 +22,9 @@ public class UIManager : MonoBehaviour
         gameselect.SetActive(false);
         modeselect.SetActive(false);
     }
+    public void BackToGameselectPanel()
+    {
+        gameselect.SetActive(true);
+        modeselect.SetActive(false);
+    }
 }
