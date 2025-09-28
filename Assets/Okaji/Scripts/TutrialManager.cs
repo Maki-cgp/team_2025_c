@@ -5,20 +5,30 @@ public class TutrialManager : MonoBehaviour
 {
     public GameObject panel1;
     public GameObject panel2;
+
+    private AudioSource audioSource;
+    public AudioClip changeSound;
     
     // スムーズな移動のための速度
     public float moveSpeed = 5f;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // ボタンのクリックイベントなどで呼び出すメソッド
     // ボタンクリックなどで実行するメソッド
     public void NextPanelMovement()
     {
+        audioSource.PlayOneShot(changeSound);   // ボタン効果音
+
         // Panel 1のRectTransformを取得し、コルーチンに渡す
         RectTransform rect1 = panel1.GetComponent<RectTransform>();
         if (rect1 != null)
         {
             // rect1を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect1, -300f, 500f));
+            StartCoroutine(MovePanelCoroutine(rect1, -110f, 690f));
         }
 
         // Panel 2のRectTransformを取得し、コルーチンに渡す
@@ -26,18 +36,20 @@ public class TutrialManager : MonoBehaviour
         if (rect2 != null)
         {
             // rect2を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect2, 100f, 100f));
+            StartCoroutine(MovePanelCoroutine(rect2, 290f, 290f));
         }
     }
     
     public void BackPanelMovement()
     {
+        audioSource.PlayOneShot(changeSound);
+
         // Panel 1のRectTransformを取得し、コルーチンに渡す
         RectTransform rect1 = panel1.GetComponent<RectTransform>();
         if (rect1 != null)
         {
             // rect1を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect1, 100f, 100f));
+            StartCoroutine(MovePanelCoroutine(rect1, 290f, 290f));
         }
 
         // Panel 2のRectTransformを取得し、コルーチンに渡す
@@ -45,7 +57,7 @@ public class TutrialManager : MonoBehaviour
         if (rect2 != null)
         {
             // rect2を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect2, 500f, -300f));
+            StartCoroutine(MovePanelCoroutine(rect2, 690f, -110f));
         }
     }
 

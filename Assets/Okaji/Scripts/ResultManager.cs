@@ -14,8 +14,8 @@ public class ResultManager : MonoBehaviour
     public TextMeshProUGUI itemText;
     public TextMeshProUGUI itemScore;
 
-    public GameObject shield;
-    public TextMeshProUGUI shieldScore;
+    public GameObject speed;
+    public TextMeshProUGUI speedScore;
 
     public GameObject noDamage;
     public TextMeshProUGUI noDamageScore;
@@ -36,6 +36,9 @@ public class ResultManager : MonoBehaviour
     public TimeManager timeManager;
     private float timeInSeconds;
     private float sumMath;
+
+    // ゴール時のスピード計測のための参照
+    public Goal goal;
 
     // リザルト音声
     private AudioSource audioSource;
@@ -63,10 +66,10 @@ public class ResultManager : MonoBehaviour
         itemText.text = string.Format("×" + GameManager.Instance.itemCount);    //取得アイテム数を表示
         itemScore.text = string.Format(1000 + "点 ×" + GameManager.Instance.itemCount);    //アイテムのスコアを表示
 
-        // シールドボーナス
-        if (ActionPlayer.shield)    // シールドの有無
+        // スピードボーナス
+        if (goal.speedChecker)    // マックススピードでのゴールか
         {
-            shieldScore.text = string.Format(3000 + "点");
+            speedScore.text = string.Format(3000 + "点");
         }
 
         // ノーダメージ
@@ -77,7 +80,7 @@ public class ResultManager : MonoBehaviour
 
         // 合計得点
         sumMath = (30000 - 100 * Mathf.Ceil(timeInSeconds)) + (1000 * GameManager.Instance.itemCount);
-        if (ActionPlayer.shield)
+        if (goal.speedChecker)
         {
             sumMath += 3000;
         }
@@ -108,8 +111,8 @@ public class ResultManager : MonoBehaviour
         item.SetActive(true);
         audioSource.PlayOneShot(resultSound);
 
-        yield return new WaitForSeconds(0.5f);  // シールド
-        shield.SetActive(true);
+        yield return new WaitForSeconds(0.5f);  // スピード
+        speed.SetActive(true);
         audioSource.PlayOneShot(resultSound);
 
         yield return new WaitForSeconds(0.5f);  // ノーダメ
