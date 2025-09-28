@@ -2,22 +2,32 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    // ゲームが進行中かどうかのフラグ
-    private bool isMoving = true;
+    // ResultManagerの参照
+    public ResultManager resultManager;
+    public TimeManager timeManager;
+
+    // ゴール演出
+    private bool goalChecker = false;
+    public GameObject goalScript;
+    public AudioClip goalSound;
+
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
-        if (isMoving)
-        {
-            // 共通の速度を加速させる
-            if (GameManager.Instance.currentSpeed < GameManager.Instance.maxSpeed)
-            {
-                GameManager.Instance.currentSpeed += GameManager.Instance.accelerationRate * Time.deltaTime;
-            }
-        }
-
         // 左への移動 (共通の速度を使用)
-            transform.position += Vector3.left * GameManager.Instance.currentSpeed * Time.deltaTime;
+        transform.position += Vector3.left * GameManager.Instance.currentSpeed * Time.deltaTime;
+
+        // 文字の移動
+        if (goalChecker)
+        {
+            goalScript.transform.position += Vector3.left * 30 * Time.deltaTime;
+        }
     }
 
     public GameObject speedMeter;
@@ -25,11 +35,19 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // GameManagerのOnGoalメソッドを呼び出す
-            GameManager.Instance.OnGoal();
-            speedMeter.SetActive(false);
+            // 共通速度を0にして、ゲームを停止させる
+            GameManager.Instance.currentSpeed = 0;
 
-            isMoving = false;
+            // ゴール演出
+            audioSource.PlayOneShot(goalSound);
+            goalChecker = true;
+
+            // OnGoalメソッドを呼び出す
+            timeManager.StopGameTimer();    // タイマー停止
+            speedMeter.SetActive(false);
+            resultManager.OnGoal();
+
+            GameManager.Instance.isMoving = false;
         }
     }
 }
