@@ -203,7 +203,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 171650360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 171650362}
+        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
+        m_MethodName: OnClickStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &171650360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453e4290b92dd443b557ba241e0f973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Action_2
 --- !u!114 &171650363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +551,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 552791706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 552791708}
+        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
+        m_MethodName: OnClickStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &552791706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453e4290b92dd443b557ba241e0f973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Action_3
 --- !u!114 &552791709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &580488382
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1414,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1021453510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1750,6 +1774,7 @@ GameObject:
   - component: {fileID: 1225080007}
   - component: {fileID: 1225080006}
   - component: {fileID: 1225080009}
+  - component: {fileID: 1225080010}
   m_Layer: 5
   m_Name: "\u97F3\u30B2\u30FC\u30DC\u30BF\u30F3"
   m_TagString: Untagged
@@ -1833,6 +1858,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1225080010}
+        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
+        m_MethodName: OnClickStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1225080007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,6 +1921,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: 748ce99f7f3735845814a743d23cd333, type: 3}
+--- !u!114 &1225080010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225080004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9453e4290b92dd443b557ba241e0f973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: SampleScene
 --- !u!1 &1280574964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,7 +2749,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1599824209}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1599824211}
+        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
+        m_MethodName: OnClickStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1599824209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2750,7 +2812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453e4290b92dd443b557ba241e0f973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Action_1
 --- !u!114 &1599824212
 MonoBehaviour:
   m_ObjectHideFlags: 0
