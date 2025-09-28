@@ -45,7 +45,7 @@ public class PoseManager : MonoBehaviour
         ActionPlayer.shield = false;
 
         // タイトルに戻る
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(0);
 
         // UIを非表示にする
         poseUI.SetActive(false);

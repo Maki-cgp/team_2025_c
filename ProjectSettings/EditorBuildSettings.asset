@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Yokotani/Scenes/New.unity
+    guid: 8fda08630065e5640b5fc4d44b4a76d7
+  - enabled: 1
+    path: Assets/Maki/Scenes/SampleScene.unity
+    guid: f22b15bdc8c6f204588e284be6b90004
+  - enabled: 1
     path: Assets/Okaji/Scenes/Action_1.unity
     guid: 2a241f56e62c5d641abe1ed0fe6d7899
   - enabled: 1
@@ -17,11 +23,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Okaji/Scenes/Action_Tutorial.unity
     guid: ba1d77a172b6a174299ee615d9842895
-  - enabled: 1
-    path: Assets/Yokotani/Scenes/New.unity
-    guid: 8fda08630065e5640b5fc4d44b4a76d7
-  - enabled: 1
-    path: Assets/Maki/Scenes/SampleScene.unity
-    guid: f22b15bdc8c6f204588e284be6b90004
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

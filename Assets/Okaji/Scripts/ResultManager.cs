@@ -167,7 +167,7 @@ public class ResultManager : MonoBehaviour
         ActionPlayer.shield = false;
 
         // タイトルに戻る
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(0);
 
         // UIを非表示にする
         resultUI.SetActive(false);
