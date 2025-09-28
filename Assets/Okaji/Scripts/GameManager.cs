@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     public float maxSpeed = 50f;            // 最高速
     public float accelerationRate = 2f;   // 1秒あたりの加速率
     public float decelerationRate = 10f;     // 減速率
+
+    public GameObject startButton;
+    public GameObject tutorial;
+    public GameObject speedMeter;
 
     // カウントダウン画像
     public GameObject go;
@@ -33,9 +38,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 速度
-    public bool isMoving = true;   // 動いているフラグ
-
-
+    public bool isMoving = false;   // 動いているフラグ
 
     // BGM
     public AudioClip countDown;
@@ -47,15 +50,27 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        // 最初の効果音を再生
-        PlayCountDown();
-        StartCoroutine(DelayedStart());
+         //StartCoroutine(GameStart()); 
+    }
+
+    public void OnButtonClick()
+    {
+        StartCoroutine(GameStart());
+        startButton.SetActive(false);
     }
 
     // カウントダウン画像表示
-    IEnumerator DelayedStart()
+    public IEnumerator GameStart()
     {
-        yield return new WaitForSeconds(0.8f);
+        if (tutorial != null)
+        {
+            tutorial.SetActive(false);
+        }
+
+        speedMeter.SetActive(true);
+        PlayCountDown();
+
+        yield return new WaitForSeconds(0.2f);
         three.SetActive(true);
 
         yield return new WaitForSeconds(0.8f);
@@ -69,6 +84,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         one.SetActive(false);
         go.SetActive(true);
+        isMoving = true;    // ゲームを動かす
+        currentSpeed = 10f;
 
         yield return new WaitForSeconds(1.0f);
         go.SetActive(false);
@@ -86,9 +103,6 @@ public class GameManager : MonoBehaviour
                 isPlayingFirstSound = false;
                 // BGMを再生
                 PlayBGM();
-
-                isMoving = true;    // ゲームを動かす
-                currentSpeed = 10f;
             }
         }
 

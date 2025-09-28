@@ -32,17 +32,27 @@ public class Item : MonoBehaviour
         // プレイヤーに触れたかチェック
         if (collision.gameObject.CompareTag("Player"))
         {
-            ActionPlayer.shield = true;   // シールド付与
+            ActionPlayer.shield = true;      // シールド付与
             GameManager.Instance.ItemCounter(); // アイテムカウント増加
 
-            audioSource.PlayOneShot(getSound);
+            // 1. 動きを停止し、当たり判定を無効化
             isMoving = false;
-
-            // 衝突判定を無効にする
             itemCollider.enabled = false;
 
-            // アイテムを破棄
-            Destroy(gameObject);
+            // 2. 音を鳴らす
+            audioSource.PlayOneShot(getSound);
+
+            // 3. レンダラーを無効にしてアイテムを非表示にする
+            // これでプレイヤーからは消えたように見える
+            var renderer = GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.enabled = false;
+            }
+
+            // 4. 音が鳴り終わるのを待ってからゲームオブジェクトを破棄
+            // getSound.length (秒) だけ遅延させてから破棄する
+            Destroy(gameObject, getSound.length);
         }
     }
 }
