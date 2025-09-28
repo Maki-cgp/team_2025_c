@@ -28,12 +28,12 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             // シーンを切り替えてもこのオブジェクトを破棄しないようにする
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
             // 既にインスタンスが存在する場合は、新しいインスタンスを破棄
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
 

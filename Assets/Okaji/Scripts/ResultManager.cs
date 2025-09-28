@@ -119,7 +119,7 @@ public class ResultManager : MonoBehaviour
         noDamage.SetActive(true);
         audioSource.PlayOneShot(resultSound);
 
-        yield return new WaitForSeconds(1.4f);  // 合計
+        yield return new WaitForSeconds(1.3f);  // 合計
         sum.SetActive(true);
 
         yield return new WaitForSeconds(1.0f);  // 最後にファンファーレ
@@ -149,7 +149,9 @@ public class ResultManager : MonoBehaviour
     public void Retry()
     {
         // 現在のシーンを再ロード
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(currentScene.name);
 
         // UIを非表示にする
         resultUI.SetActive(false);

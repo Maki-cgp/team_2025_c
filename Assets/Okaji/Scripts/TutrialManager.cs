@@ -28,7 +28,7 @@ public class TutrialManager : MonoBehaviour
         if (rect1 != null)
         {
             // rect1を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect1, -110f, 690f));
+            StartCoroutine(MovePanelCoroutine(rect1, -800f, 1200f));
         }
 
         // Panel 2のRectTransformを取得し、コルーチンに渡す
@@ -36,7 +36,7 @@ public class TutrialManager : MonoBehaviour
         if (rect2 != null)
         {
             // rect2を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect2, 290f, 290f));
+            StartCoroutine(MovePanelCoroutine(rect2, 200f, 200f));
         }
     }
     
@@ -49,7 +49,7 @@ public class TutrialManager : MonoBehaviour
         if (rect1 != null)
         {
             // rect1を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect1, 290f, 290f));
+            StartCoroutine(MovePanelCoroutine(rect1, 200f, 200f));
         }
 
         // Panel 2のRectTransformを取得し、コルーチンに渡す
@@ -57,7 +57,7 @@ public class TutrialManager : MonoBehaviour
         if (rect2 != null)
         {
             // rect2を引数として渡す
-            StartCoroutine(MovePanelCoroutine(rect2, 690f, -110f));
+            StartCoroutine(MovePanelCoroutine(rect2, 1200f, -800f));
         }
     }
 
